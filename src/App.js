@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Sentence from './components/Sentence'
 
@@ -6,7 +6,7 @@ import Sentence from './components/Sentence'
 const Container = styled.div`
 display:flex;
 align-items:center;
-padding-top:5rem;
+padding-top:3rem;
 flex-direction:column;
 `;
 
@@ -19,6 +19,12 @@ margin-top:3rem;
 padding:1rem 3rem;
 font-size:2rem;
 border:2px solid black;
+transition: background-size .8s ease;
+
+:hover{
+  cursor: pointer;
+  background-size:400px;
+}
 `;
 
 
@@ -35,6 +41,10 @@ function App() {
    
   }
 
+  //Cargar una frase al iniciar la app
+  useEffect(()=>{
+    getApi();
+  },[])
 
   return (
     <Container>
